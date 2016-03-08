@@ -328,7 +328,9 @@ class Id3:
         training_set = []
         with open(filename, "r") as f:
             reader = csv.reader(f)
-            for row in reader:
+            for i, row in enumerate(reader):
+                if i != 0:
+                    row = [int(x) for x in row]
                 training_set.append(row)
         return training_set
 
