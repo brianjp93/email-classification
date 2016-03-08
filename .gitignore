@@ -48,3 +48,4 @@ Temporary Items
 
 spam/
 ham/
+*.pyc
