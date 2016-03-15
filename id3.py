@@ -201,30 +201,6 @@ class Id3:
         # print("top gain: {}".format(top_gain))
         return best
 
-    def chisquared(self, p, n, dp, dn, p_pos, p_neg, n_pos, n_neg):
-        """
-        returns chi-sqared statistic
-
-        p - number of positively classified examples in D
-        n - number of negatively classified examples in D
-        dp - number of examples with positive attribute value
-        dn - number of examples with negative attribute vlue
-        p_pos - number of positively classified examples with positive attribute value
-        p_neg - number of positively classified examples with negative attribute value
-        n_pos - number of negatively classified examples with positive attribute value
-        n_neg - number of negatively classified examples with negative attribute value
-        """
-        p_hat1 = (p/(p + n)) * dp
-        p_hat2 = (p/(p + n)) * dn
-        n_hat1 = (n/(p + n)) * dp
-        n_hat2 = (n/(p + n)) * dn
-        term1 = ((p_pos - p_hat1)**2)/p_hat1 if p_hat1 != 0 else 0
-        term2 = ((n_pos - n_hat1)**2)/n_hat1 if n_hat1 != 0 else 0
-        term3 = ((p_neg - p_hat2)**2)/p_hat2 if p_hat2 != 0 else 0
-        term4 = ((n_neg - n_hat2)**2)/n_hat2 if n_hat2 != 0 else 0
-        chi = term1 + term2 + term3 + term4
-        return chi
-
     def gain(self, entropy, examples, attr):
         pos_examples = []
         pos_c = []
