@@ -7,6 +7,7 @@ from random import shuffle, random
 from sklearn.svm import SVC
 from id3 import Id3
 from math import sqrt
+import time
 
 
 class SerialPredict:
@@ -189,7 +190,10 @@ def randomForest():
     print("Decision forest of {} trees got {} right.".format(numtrees, right/len(testvectors)))
 
 if __name__ == '__main__':
+    start = time.time()
     # svmTest()
-    # id3test()
+    id3test()
     # forestTest()
-    randomForest()
+    # randomForest()
+    end = time.time()
+    print("Total Serial Time: {} seconds.".format(end-start))
